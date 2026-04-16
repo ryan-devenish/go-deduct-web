@@ -132,6 +132,30 @@ section {
   padding: 56px 0;
 }
 
+
+.value-strip {
+  padding: 14px 0;
+  background: #e9efff;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.value-strip p {
+  margin: 0;
+  text-align: center;
+  color: #1f3f99;
+  font-weight: 600;
+}
+
+.usage-moment {
+  text-align: center;
+}
+
+.usage-moment .btn {
+  margin-top: 8px;
+  display: inline-block;
+}
+
 .section-light {
   background: #f8f9fe;
   border-top: 1px solid var(--line);
