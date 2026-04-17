@@ -26,10 +26,10 @@ body {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
-  background: rgba(244, 245, 251, 0.96);
+  z-index: 20;
+  background: rgba(244, 245, 251, 0.9);
   border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(10px);
 }
 
 .nav-wrap {
@@ -70,6 +70,11 @@ nav a,
   font-weight: 600;
   text-decoration: none;
   font-size: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
 }
 
 .btn-dark {
@@ -82,32 +87,99 @@ nav a,
   color: var(--brand);
 }
 
-.hero {
-  padding: 72px 0 44px;
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 48px;
-  align-items: center;
+.btn-primary {
+  background: linear-gradient(140deg, #4f7de2, #3f68bb);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(32, 73, 160, 0.3);
+  border-radius: 12px;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  padding: 15px 26px;
 }
 
-.pill {
-  display: inline-block;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: #e9efff;
-  color: var(--brand);
-  font-size: 13px;
-  font-weight: 600;
+.hero {
+  padding: 34px 0 56px;
+}
+
+.hero-shell {
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  isolation: isolate;
+  min-height: clamp(560px, 76vh, 760px);
+  display: flex;
+  align-items: center;
+  padding: clamp(32px, 6vw, 86px);
+  border: 1px solid #e3e6ef;
+  background: #eef1f8;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 3;
+  max-width: 560px;
+}
+
+.hero-kicker {
+  margin: 0 0 16px;
+  color: #4f5562;
+  font-size: clamp(1.05rem, 1.6vw, 1.9rem);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
 }
 
 h1 {
-  font-size: clamp(38px, 6vw, 66px);
+  font-size: clamp(2.2rem, 5.4vw, 5rem);
   line-height: 1.05;
-  margin: 18px 0 14px;
+  margin: 0;
+  color: #2d4678;
+  max-width: 13ch;
 }
 
-h1 span {
-  color: var(--brand);
+.hero-subhead {
+  margin: 22px 0 0;
+  font-size: clamp(1.3rem, 2.1vw, 3rem);
+  line-height: 1.25;
+  color: #4f5562;
+}
+
+.hero-cta {
+  margin-top: clamp(28px, 3.8vw, 42px);
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% center;
+  transform: scale(1.02);
+}
+
+.hero-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    radial-gradient(110% 130% at 18% 48%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.78) 36%, rgba(255, 255, 255, 0.34) 66%, rgba(255, 255, 255, 0.08) 100%),
+    linear-gradient(90deg, rgba(247, 248, 252, 0.9) 0%, rgba(247, 248, 252, 0.74) 28%, rgba(247, 248, 252, 0.32) 52%, rgba(247, 248, 252, 0) 72%);
+}
+
+.hero-shell::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: -6% auto auto -14%;
+  width: min(54vw, 720px);
+  height: min(65vh, 580px);
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.56) 0%, rgba(255, 255, 255, 0) 68%);
+  filter: blur(10px);
 }
 
 .hero p,
@@ -120,18 +192,9 @@ h1 span {
   color: var(--muted);
 }
 
-.hero-media {
-  min-height: 430px;
-  border-radius: 26px;
-  background:
-    linear-gradient(140deg, rgba(41, 98, 255, 0.22), rgba(17, 22, 34, 0.1)),
-    url("https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1000&q=80") center/cover;
-}
-
 section {
   padding: 56px 0;
 }
-
 
 .value-strip {
   padding: 14px 0;
@@ -272,7 +335,36 @@ h2 {
   }
 
   .hero {
-    grid-template-columns: 1fr;
+    padding-top: 20px;
+  }
+
+  .hero-shell {
+    min-height: 680px;
+    align-items: flex-start;
+    padding: 32px 24px;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+    padding-top: 6px;
+  }
+
+  .hero-media img {
+    object-position: 66% center;
+    transform: scale(1.08);
+  }
+
+  .hero-shell::before {
+    background:
+      linear-gradient(180deg, rgba(248, 249, 253, 0.95) 0%, rgba(248, 249, 253, 0.87) 34%, rgba(248, 249, 253, 0.54) 55%, rgba(248, 249, 253, 0.2) 72%, rgba(248, 249, 253, 0.1) 100%),
+      radial-gradient(120% 92% at 18% 18%, rgba(255, 255, 255, 0.84) 0%, rgba(255, 255, 255, 0.14) 78%);
+  }
+
+  .hero-shell::after {
+    inset: -14% -34% auto auto;
+    width: 96vw;
+    height: 52vh;
+    opacity: 0.5;
   }
 
   .card-grid.three,
