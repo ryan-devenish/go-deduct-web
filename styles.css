@@ -97,25 +97,27 @@ nav a,
 }
 
 .hero {
-  padding: 34px 0 56px;
+  padding: 20px 0 56px;
 }
 
 .hero-shell {
   position: relative;
   overflow: hidden;
-  border-radius: 30px;
   isolation: isolate;
   min-height: clamp(560px, 76vh, 760px);
   display: flex;
   align-items: center;
-  padding: clamp(32px, 6vw, 86px);
-  border: 1px solid #e3e6ef;
   background: #eef1f8;
 }
 
-.hero-copy {
+.hero-content {
   position: relative;
   z-index: 3;
+  width: 100%;
+  padding: clamp(32px, 6vw, 86px) 20px;
+}
+
+.hero-copy {
   max-width: 560px;
 }
 
@@ -341,6 +343,9 @@ h2 {
   .hero-shell {
     min-height: 680px;
     align-items: flex-start;
+  }
+
+  .hero-content {
     padding: 32px 24px;
   }
 
