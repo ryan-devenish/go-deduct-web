@@ -400,21 +400,18 @@ h2 {
   margin: 13px auto 0;
 }
 
-.early-access-form {
+.cta-buttons {
   margin: 20px auto 0;
   display: flex;
   justify-content: center;
   gap: 10px;
-  max-width: 560px;
+  flex-wrap: wrap;
 }
 
-.early-access-form input {
-  flex: 1;
-  min-width: 0;
-  padding: 13px 14px;
-  border-radius: 12px;
-  border: 1px solid #ced9fb;
-  font: inherit;
+.cta-buttons .btn-dark {
+  background: rgba(8, 18, 43, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #fff;
 }
 
 .form-note {
@@ -537,7 +534,7 @@ h2 {
     grid-template-columns: 1fr;
   }
 
-  .early-access-form {
+  .cta-buttons {
     flex-direction: column;
     max-width: 100%;
   }
