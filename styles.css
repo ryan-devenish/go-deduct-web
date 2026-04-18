@@ -123,8 +123,9 @@ nav a,
 .hero-content {
   position: relative;
   z-index: 3;
-  width: 100%;
-  padding: clamp(32px, 6vw, 86px) 20px;
+  width: min(1120px, 92vw);
+  margin: 0 auto;
+  padding: clamp(32px, 6vw, 86px) 0;
 }
 
 .hero-copy {
@@ -372,7 +373,7 @@ h2 {
   }
 
   .hero-content {
-    padding: 32px 24px;
+    padding: 32px 0;
   }
 
   .hero-copy {
