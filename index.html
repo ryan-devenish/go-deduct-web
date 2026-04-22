@@ -21,6 +21,7 @@
           <a href="#friction">Why It Matters</a>
           <a href="#benefits">Features</a>
           <a href="#app-store">Download</a>
+          <a href="mailto:hello@godeduct.com" data-contact-link>Contact Us</a>
         </nav>
         <div class="actions">
           <a href="#how" class="login">See how it works</a>
@@ -166,8 +167,8 @@
         <div>
           <h4>Resources</h4>
           <a href="#app-store">Download on App Store</a>
-          <a href="#">FAQs</a>
-          <a href="#">Help Center</a>
+          <a href="mailto:hello@godeduct.com" data-contact-link>Contact Us</a>
+          <a href="mailto:hello@godeduct.com" data-contact-email>hello@godeduct.com</a>
         </div>
         <div>
           <h4>Legal</h4>
@@ -176,5 +177,19 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      const CONTACT_EMAIL = 'hello@godeduct.com';
+      const CONTACT_MAILTO = `mailto:${CONTACT_EMAIL}`;
+
+      document.querySelectorAll('[data-contact-link]').forEach((contactLink) => {
+        contactLink.setAttribute('href', CONTACT_MAILTO);
+      });
+
+      document.querySelectorAll('[data-contact-email]').forEach((emailLink) => {
+        emailLink.setAttribute('href', CONTACT_MAILTO);
+        emailLink.textContent = CONTACT_EMAIL;
+      });
+    </script>
   </body>
 </html>
